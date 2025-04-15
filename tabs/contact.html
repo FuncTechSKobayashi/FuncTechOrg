@@ -1,5 +1,45 @@
 <section id="contact">
-    <!--お問い合わせ -->
+    <script>
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            const honeypot = document.getElementById('address').value;
+            if(honeypot) {
+                e.preventDefault();
+                alert('送信エラーが発生しました。再試行してください。');
+                return false;
+            }
+        
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                e.preventDefault();
+                alert('正しいメールアドレスを入力してください。');
+                document.getElementById('email').focus();
+                return false;
+            }
+        
+            const phone = document.getElementById('phone').value;
+            const phonePattern = /^[0-9\-]+$/;
+            if (!phonePattern.test(phone)) {
+                e.preventDefault();
+                alert('正しい電話番号を入力してください。（半角数字とハイフンのみ）');
+                document.getElementById('phone').focus();
+                return false;
+            }
+        
+            const requiredFields = ['name', 'subject', 'description'];
+            for (let field of requiredFields) {
+                const value = document.getElementById(field).value.trim();
+                if (!value) {
+                    e.preventDefault();
+                    alert('必須項目をすべて入力してください。');
+                    document.getElementById(field).focus();
+                    return false;
+                }
+            }
+        
+            return true;
+        });
+        </script>
     <div>
         <div class="image-container">
             <img src="images/haikei1.png" alt="背景画像">
@@ -13,11 +53,11 @@
             </div>
             <div style="text-align: left;">お問合せ内容をご記入ください。
             </div>
-            <form
-                action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5h000003Fe8L"
-                method="POST">
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5h000003Fe8L"
+            method="POST" id="inquiryForm">
                 <input type="hidden" name="orgid" value="00D5h000003Fe8L">
                 <input type="hidden" name="retURL" value="https://www.functech.org/contactfinish.html">
+            
                 <div class="contact">
                     <table class="contact-table" style="table-layout: fixed;">
                         <tr>
@@ -25,8 +65,7 @@
                                 <label for="name">会社名</label>
                             </td>
                             <td class="contact-body">
-                                <input id="name" style="width: 100%;" maxlength="80" name="name" size="20"
-                                    type="text" />
+                                <input id="name" style="width: 100%;" maxlength="80" name="name" size="20" type="text" required />
                             </td>
                         </tr>
                         <tr>
@@ -34,8 +73,7 @@
                                 <label for="email">メールアドレス</label>
                             </td>
                             <td class="contact-body">
-                                <input id="email" style="width: 100%;" maxlength="80" name="email" size="20"
-                                    type="text" />
+                                <input id="email" style="width: 100%;" maxlength="80" name="email" size="20" type="email" required />
                             </td>
                         </tr>
                         <tr>
@@ -43,8 +81,7 @@
                                 <label for="phone">電話番号</label>
                             </td>
                             <td class="contact-body">
-                                <input id="phone" style="width: 100%;" maxlength="40" name="phone" size="20"
-                                    type="text" />
+                                <input id="phone" style="width: 100%;" maxlength="40" name="phone" size="20" type="text" required />
                             </td>
                         </tr>
                         <tr>
@@ -52,8 +89,7 @@
                                 <label for="subject">件名</label>
                             </td>
                             <td class="contact-body">
-                                <input id="subject" style="width: 100%;" maxlength="80" name="subject" size="20"
-                                    type="text" />
+                                <input id="subject" style="width: 100%;" maxlength="80" name="subject" size="20" type="text" required />
                             </td>
                         </tr>
                         <tr>
@@ -62,14 +98,19 @@
                             </td>
                             <td class="contact-body">
                                 <textarea id="description" name="description"
-                                    style="min-height: 115px; resize: vertical;"></textarea>
+                                    style="min-height: 115px; resize: vertical;" required></textarea>
                             </td>
                         </tr>
                     </table>
+                    <div style="display:none;">
+                        <input type="text" name="address" id="address" value="">
+                    </div>
+            
                     <input type="hidden" id="external" name="external" value="1" />
                     <br>
-                    <input type="submit" name="submit" style="width: 200px; height: 50px; color: black;cursor:pointer;"
-                        onClick="return checkRequied();">
+                    <input type="submit" name="submit"
+                        style="width: 200px; height: 50px; color: black; cursor:pointer;">
+                </div>
             </form>
         </div>
     </div>
