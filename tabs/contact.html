@@ -7,6 +7,16 @@
                 alert('送信エラーが発生しました。再試行してください。');
                 return false;
             }
+            const descriptionText = document.getElementById('description').value;
+            if(
+                descriptionText.indexOf('スマートセールス') != -1 || 
+                descriptionText.indexOf('M&A') != -1 || 
+                descriptionText.indexOf('リトライブ') != -1
+            ) {
+                e.preventDefault();
+                alert('問い合わせを受け付けすることができません。');
+                return false;
+            }
         
             const email = document.getElementById('email').value;
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
