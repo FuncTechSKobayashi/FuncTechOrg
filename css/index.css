@@ -38,6 +38,10 @@ body {
   scroll-behavior: smooth;
 }
 
+html:focus-within {
+  scroll-behavior: auto;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -511,6 +515,138 @@ a:hover {
   border: 1px solid var(--md-sys-color-outline);
 }
 
+.contact-flow {
+  background: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  box-shadow: var(--elevation-1);
+  margin-bottom: 24px;
+}
+
+.contact-flow-title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-family: "Sora", "Noto Sans JP", sans-serif;
+}
+
+.contact-flow-lead {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.contact-flow-steps {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-flow-step {
+  background: var(--md-sys-color-surface-variant);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.contact-step-label {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--md-sys-color-secondary);
+  font-weight: 700;
+}
+
+.contact-step-title {
+  margin: 6px 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.contact-options {
+  display: grid;
+  gap: 10px;
+}
+
+.contact-option {
+  position: relative;
+  display: block;
+}
+
+.contact-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact-option-label {
+  display: block;
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--md-sys-color-outline);
+  background: #ffffff;
+  color: var(--md-sys-color-on-surface);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.contact-option-label:hover {
+  border-color: rgba(27, 110, 243, 0.4);
+}
+
+.contact-option input:checked + .contact-option-label {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-color: rgba(27, 110, 243, 0.4);
+  box-shadow: var(--elevation-1);
+}
+
+.contact-option input:focus-visible + .contact-option-label {
+  outline: 2px solid rgba(27, 110, 243, 0.35);
+  outline-offset: 2px;
+}
+
+.contact-flow-status {
+  margin-top: 16px;
+}
+
+.status-message {
+  display: none;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  border: 1px solid transparent;
+}
+
+#contactFlowStatus[data-state="neutral"] .status-message--neutral,
+#contactFlowStatus[data-state="ok"] .status-message--ok,
+#contactFlowStatus[data-state="ng"] .status-message--ng {
+  display: block;
+}
+
+.status-message--neutral {
+  background: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+  border-color: var(--md-sys-color-outline);
+}
+
+.status-message--ok {
+  background: #e6f6f1;
+  color: var(--md-sys-color-on-secondary-container);
+  border-color: rgba(15, 118, 110, 0.35);
+}
+
+.status-message--ng {
+  background: #fde8e8;
+  color: #9f1239;
+  border-color: #f5b4b4;
+}
+
+.contact-form-wrapper[hidden] {
+  display: none;
+}
+
 .contact-table {
   width: 100%;
   border-collapse: separate;
@@ -549,7 +685,7 @@ textarea {
   line-height: 1.5;
   font-family: inherit;
   height: 44px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition: none;
 }
 
 textarea {
@@ -909,6 +1045,14 @@ input[type="submit"]:hover {
 
   .contact {
     padding: 16px;
+  }
+
+  .contact-flow {
+    padding: 16px;
+  }
+
+  .contact-flow-step {
+    padding: 12px 14px;
   }
 
   .catchcopy {

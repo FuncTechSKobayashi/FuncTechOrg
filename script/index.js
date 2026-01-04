@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    const tabCache = new Map();
+    const prefetchCache = new Map();
+    const initialTab = "home.html";
+    let currentTab = null;
+
     function setActiveTab(tabFile) {
         $(".tab-btn").removeClass("active").attr("aria-selected", "false");
         const $target = $(`.tab-btn[data-tab='${tabFile}']`);
@@ -15,9 +20,34 @@ $(document).ready(function () {
         if (!tabFile) {
             return;
         }
+        if (currentTab === tabFile) {
+            return;
+        }
         setActiveTab(tabFile);
-        $content.addClass("is-loading").load(`./tabs/${tabFile}`, function () {
+        if (currentTab) {
+            tabCache.set(currentTab, $content.children().detach());
+        }
+        if (tabCache.has(tabFile)) {
+            $content.append(tabCache.get(tabFile));
+            currentTab = tabFile;
+            return;
+        }
+        if (prefetchCache.has(tabFile)) {
+            $content.html(prefetchCache.get(tabFile));
+            currentTab = tabFile;
+            return;
+        }
+        $content.addClass("is-loading").load(`./tabs/${tabFile}`, function (_response, status) {
             $content.removeClass("is-loading");
+            if (status !== "success") {
+                const fallback = tabCache.get(currentTab);
+                if (fallback) {
+                    $content.append(fallback);
+                    setActiveTab(currentTab);
+                }
+                return;
+            }
+            currentTab = tabFile;
         });
     }
 
@@ -26,8 +56,27 @@ $(document).ready(function () {
         loadTab(tabFile);
     });
 
+    function prefetchTabs() {
+        $(".tab-btn").each(function () {
+            const tabFile = $(this).data("tab");
+            if (!tabFile || tabFile === initialTab || tabFile === "contact.html") {
+                return;
+            }
+            if (tabCache.has(tabFile) || prefetchCache.has(tabFile)) {
+                return;
+            }
+            $.get(`./tabs/${tabFile}`).done(function (html) {
+                prefetchCache.set(tabFile, html);
+            });
+        });
+    }
+
     // 初回ロード時の表示
-    loadTab("home.html");
+    loadTab(initialTab);
+    const idle = window.requestIdleCallback || function (callback) {
+        setTimeout(callback, 400);
+    };
+    idle(prefetchTabs);
 });
 
 function checkRequied(){

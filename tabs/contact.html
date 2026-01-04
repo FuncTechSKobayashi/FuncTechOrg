@@ -1,55 +1,4 @@
 <section id="contact">
-    <script>
-        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
-            const honeypot = document.getElementById('address').value;
-            if(honeypot) {
-                e.preventDefault();
-                alert('送信エラーが発生しました。再試行してください。');
-                return false;
-            }
-            const descriptionText = document.getElementById('description').value;
-            if(
-                descriptionText.indexOf('スマートセールス') != -1 || 
-                descriptionText.indexOf('M&A') != -1 || 
-                descriptionText.indexOf('リトライブ') != -1
-            ) {
-                e.preventDefault();
-                alert('問い合わせを受け付けすることができません。');
-                return false;
-            }
-        
-            const email = document.getElementById('email').value;
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                e.preventDefault();
-                alert('正しいメールアドレスを入力してください。');
-                document.getElementById('email').focus();
-                return false;
-            }
-        
-            const phone = document.getElementById('phone').value;
-            const phonePattern = /^[0-9\-]+$/;
-            if (!phonePattern.test(phone)) {
-                e.preventDefault();
-                alert('正しい電話番号を入力してください。（半角数字とハイフンのみ）');
-                document.getElementById('phone').focus();
-                return false;
-            }
-        
-            const requiredFields = ['name', 'subject', 'description'];
-            for (let field of requiredFields) {
-                const value = document.getElementById(field).value.trim();
-                if (!value) {
-                    e.preventDefault();
-                    alert('必須項目をすべて入力してください。');
-                    document.getElementById(field).focus();
-                    return false;
-                }
-            }
-        
-            return true;
-        });
-        </script>
     <div>
         <div class="image-container">
             <img src="images/haikei1.png" alt="背景画像">
@@ -58,67 +7,245 @@
     </div>
     <div>
         <div class="inner m70_sph">
-            <div style="text-align: left;">お問合せ内容をご記入ください。
-            </div>
-            <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5h000003Fe8L"
-            method="POST" id="inquiryForm">
-                <input type="hidden" name="orgid" value="00D5h000003Fe8L">
-                <input type="hidden" name="retURL" value="https://www.functech.org/contactfinish.html">
-            
-                <div class="contact">
-                    <table class="contact-table" style="table-layout: fixed;">
-                        <tr>
-                            <td class="contact-item">
-                                <label for="name">会社名</label>
-                            </td>
-                            <td class="contact-body">
-                                <input id="name" style="width: 100%;" maxlength="80" name="name" size="20" type="text" required />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="contact-item">
-                                <label for="email">メールアドレス</label>
-                            </td>
-                            <td class="contact-body">
-                                <input id="email" style="width: 100%;" maxlength="80" name="email" size="20" type="email" required />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="contact-item">
-                                <label for="phone">電話番号</label>
-                            </td>
-                            <td class="contact-body">
-                                <input id="phone" style="width: 100%;" maxlength="40" name="phone" size="20" type="text" required />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="contact-item">
-                                <label for="subject">件名</label>
-                            </td>
-                            <td class="contact-body">
-                                <input id="subject" style="width: 100%;" maxlength="80" name="subject" size="20" type="text" required />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="contact-item">
-                                <label for="description">お問い合わせ内容</label>
-                            </td>
-                            <td class="contact-body">
-                                <textarea id="description" name="description"
-                                    style="min-height: 115px; resize: vertical;" required></textarea>
-                            </td>
-                        </tr>
-                    </table>
-                    <div style="display:none;">
-                        <input type="text" name="address" id="address" value="">
+            <div id="contactFlow" class="contact-flow">
+                <h3 class="contact-flow-title">ご相談内容の確認</h3>
+                <p class="contact-flow-lead">営業・提携のご提案は受け付けておりません。対象のご相談のみフォームが表示されます。</p>
+                <div class="contact-flow-steps">
+                    <div class="contact-flow-step">
+                        <span class="contact-step-label">Step 1</span>
+                        <p class="contact-step-title">ご相談区分を選択</p>
+                        <div class="contact-options">
+                            <label class="contact-option">
+                                <input type="radio" name="inquiry_type" value="salesforce_dev">
+                                <span class="contact-option-label">Salesforce開発・運用支援</span>
+                            </label>
+                            <label class="contact-option">
+                                <input type="radio" name="inquiry_type" value="maptech">
+                                <span class="contact-option-label">Salesforce地図アプリ（MapTech）の導入相談</span>
+                            </label>
+                            <label class="contact-option">
+                                <input type="radio" name="inquiry_type" value="consulting">
+                                <span class="contact-option-label">システムコンサルティング（IT/業務）</span>
+                            </label>
+                            <label class="contact-option">
+                                <input type="radio" name="inquiry_type" value="other">
+                                <span class="contact-option-label">その他・営業/広告/提携のご提案</span>
+                            </label>
+                        </div>
                     </div>
-            
-                    <input type="hidden" id="external" name="external" value="1" />
-                    <br>
-                    <input type="submit" name="submit"
-                        style="width: 200px; height: 50px; color: black; cursor:pointer;">
+                    <div class="contact-flow-step">
+                        <span class="contact-step-label">Step 2</span>
+                        <p class="contact-step-title">営業・提携のご提案ですか？</p>
+                        <div class="contact-options">
+                            <label class="contact-option">
+                                <input type="radio" name="sales_intent" value="no">
+                                <span class="contact-option-label">いいえ（ご相談）</span>
+                            </label>
+                            <label class="contact-option">
+                                <input type="radio" name="sales_intent" value="yes">
+                                <span class="contact-option-label">はい（営業・提携のご提案）</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="contact-flow-step">
+                        <span class="contact-step-label">Step 3</span>
+                        <p class="contact-step-title">現在の状況（任意）</p>
+                        <div class="contact-options">
+                            <label class="contact-option">
+                                <input type="radio" name="project_stage" value="using">
+                                <span class="contact-option-label">既にSalesforce利用中</span>
+                            </label>
+                            <label class="contact-option">
+                                <input type="radio" name="project_stage" value="considering">
+                                <span class="contact-option-label">導入検討中</span>
+                            </label>
+                            <label class="contact-option">
+                                <input type="radio" name="project_stage" value="research">
+                                <span class="contact-option-label">情報収集中</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-            </form>
+                <div id="contactFlowStatus" class="contact-flow-status" data-state="neutral" aria-live="polite">
+                    <p class="status-message status-message--neutral">Step 1とStep 2を選択するとフォームが表示されます。</p>
+                    <p class="status-message status-message--ok">対象のご相談を確認しました。下のフォームにご記入ください。</p>
+                    <p class="status-message status-message--ng">営業・提携のご提案は受け付けておりません。恐れ入りますが別の窓口をご利用ください。</p>
+                </div>
+            </div>
+
+            <div id="contact-form-wrapper" class="contact-form-wrapper" hidden>
+                <div style="text-align: left;">お問合せ内容をご記入ください。</div>
+                <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5h000003Fe8L"
+                method="POST" id="inquiryForm">
+                    <input type="hidden" name="orgid" value="00D5h000003Fe8L">
+                    <input type="hidden" name="retURL" value="https://www.functech.org/contactfinish.html">
+
+                    <div class="contact">
+                        <table class="contact-table" style="table-layout: fixed;">
+                            <tr>
+                                <td class="contact-item">
+                                    <label for="name">会社名</label>
+                                </td>
+                                <td class="contact-body">
+                                    <input id="name" style="width: 100%;" maxlength="80" name="name" size="20" type="text" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="contact-item">
+                                    <label for="email">メールアドレス</label>
+                                </td>
+                                <td class="contact-body">
+                                    <input id="email" style="width: 100%;" maxlength="80" name="email" size="20" type="email" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="contact-item">
+                                    <label for="phone">電話番号</label>
+                                </td>
+                                <td class="contact-body">
+                                    <input id="phone" style="width: 100%;" maxlength="40" name="phone" size="20" type="text" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="contact-item">
+                                    <label for="subject">件名</label>
+                                </td>
+                                <td class="contact-body">
+                                    <input id="subject" style="width: 100%;" maxlength="80" name="subject" size="20" type="text" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="contact-item">
+                                    <label for="description">お問い合わせ内容</label>
+                                </td>
+                                <td class="contact-body">
+                                    <textarea id="description" name="description"
+                                        style="min-height: 115px; resize: vertical;" required></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="display:none;">
+                            <input type="text" name="address" id="address" value="">
+                        </div>
+
+                        <input type="hidden" id="external" name="external" value="1" />
+                        <br>
+                        <input type="submit" name="submit"
+                            style="width: 200px; height: 50px; color: black; cursor:pointer;">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+    <script>
+        (function () {
+            const flow = document.getElementById("contactFlow");
+            const status = document.getElementById("contactFlowStatus");
+            const formWrapper = document.getElementById("contact-form-wrapper");
+            const form = document.getElementById("inquiryForm");
+            if (!flow || !status || !formWrapper || !form) {
+                return;
+            }
+
+            function getSelectedValue(name) {
+                const checked = flow.querySelector(`input[name="${name}"]:checked`);
+                return checked ? checked.value : "";
+            }
+
+            function isEligible() {
+                const type = getSelectedValue("inquiry_type");
+                const sales = getSelectedValue("sales_intent");
+                if (!type || !sales) {
+                    return false;
+                }
+                if (sales === "yes" || type === "other") {
+                    return false;
+                }
+                return true;
+            }
+
+            function setFormEnabled(enabled) {
+                formWrapper.hidden = !enabled;
+                const fields = form.querySelectorAll("input:not([type='hidden']), textarea, button");
+                fields.forEach((field) => {
+                    field.disabled = !enabled;
+                });
+            }
+
+            function updateFlow() {
+                const type = getSelectedValue("inquiry_type");
+                const sales = getSelectedValue("sales_intent");
+                if (!type || !sales) {
+                    status.setAttribute("data-state", "neutral");
+                    setFormEnabled(false);
+                    return;
+                }
+                if (sales === "yes" || type === "other") {
+                    status.setAttribute("data-state", "ng");
+                    setFormEnabled(false);
+                    return;
+                }
+                status.setAttribute("data-state", "ok");
+                setFormEnabled(true);
+            }
+
+            flow.addEventListener("change", updateFlow);
+            updateFlow();
+
+            form.addEventListener("submit", function (e) {
+                if (!isEligible()) {
+                    e.preventDefault();
+                    alert("営業・提携のご提案は受け付けておりません。");
+                    return false;
+                }
+                const honeypot = document.getElementById("address").value;
+                if (honeypot) {
+                    e.preventDefault();
+                    alert("送信エラーが発生しました。再試行してください。");
+                    return false;
+                }
+                const descriptionText = document.getElementById("description").value;
+                if (
+                    descriptionText.indexOf("スマートセールス") !== -1 ||
+                    descriptionText.indexOf("M&A") !== -1 ||
+                    descriptionText.indexOf("リトライブ") !== -1
+                ) {
+                    e.preventDefault();
+                    alert("問い合わせを受け付けすることができません。");
+                    return false;
+                }
+
+                const email = document.getElementById("email").value;
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    e.preventDefault();
+                    alert("正しいメールアドレスを入力してください。");
+                    document.getElementById("email").focus();
+                    return false;
+                }
+
+                const phone = document.getElementById("phone").value;
+                const phonePattern = /^[0-9\-]+$/;
+                if (!phonePattern.test(phone)) {
+                    e.preventDefault();
+                    alert("正しい電話番号を入力してください。（半角数字とハイフンのみ）");
+                    document.getElementById("phone").focus();
+                    return false;
+                }
+
+                const requiredFields = ["name", "subject", "description"];
+                for (let field of requiredFields) {
+                    const value = document.getElementById(field).value.trim();
+                    if (!value) {
+                        e.preventDefault();
+                        alert("必須項目をすべて入力してください。");
+                        document.getElementById(field).focus();
+                        return false;
+                    }
+                }
+
+                return true;
+            });
+        })();
+    </script>
 </section>
