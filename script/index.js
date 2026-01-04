@@ -1,22 +1,34 @@
 $(document).ready(function () {
-    $(".tab-btn").on("click", function () {
+    function setActiveTab(tabFile) {
+        $(".tab-btn").removeClass("active").attr("aria-selected", "false");
+        const $target = $(`.tab-btn[data-tab='${tabFile}']`);
+        if ($target.length) {
+            $target.addClass("active").attr("aria-selected", "true");
+        }
+    }
+
+    function loadTab(tabFile) {
+        const $content = $("#content-area");
+        if (!$content.length) {
+            return;
+        }
+        if (!tabFile) {
+            return;
+        }
+        setActiveTab(tabFile);
+        $content.addClass("is-loading").load(`./tabs/${tabFile}`, function () {
+            $content.removeClass("is-loading");
+        });
+    }
+
+    $(document).on("click", "[data-tab]", function () {
         const tabFile = $(this).data("tab");
-        $(".tab-btn").removeClass("active");
-        $(this).addClass("active");
-        $("#content-area").load(`./tabs/${tabFile}`);
+        loadTab(tabFile);
     });
-  
-    
-    $(".footerLink").on("click", function () {
-        const tabFile = $(this).data("tab");
-        $(".tab-btn").removeClass("active");
-        $(this).addClass("active");
-        $("#content-area").load(`./tabs/${tabFile}`);
-    });
-    
+
     // 初回ロード時の表示
-    $("#content-area").load("./tabs/company_info.html");
-  });
+    loadTab("home.html");
+});
 
 function checkRequied(){
     if(document.getElementById("name").value == ""){

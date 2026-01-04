@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -6,13 +7,16 @@
   <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FuncTech株式会社</title>
-  <meta name="description" content="FuncTech株式会社">
+  <meta name="description" content="Salesforceの開発を支援します。既存のAppExchangeよりお手頃な価格で提供可能な地図アプリもあります。">
   <meta name="keywords" content="FuncTech株式会社">
   <meta name="format-detection" content="telephone=no">
-  <meta name="description" content="Salesforceの開発を支援します。既存のAppExchangeよりお手頃な価格で提供可能な地図アプリもあります。">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1b6ef3">
   <!-- CSS -->
   <link rel="canonical" href="https://www.functech.org/"> <!-- 正しいURLを指定 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="./css/index.css">
 
   <!-- JS -->
@@ -20,21 +24,32 @@
   <script src="./script/index.js"></script>
 </head>
 <body>
-  <div id="main" class="common">
-    <header>
-      <div class="img100"><a href=""><img src="images/FuncTech128.png" alt="FuncTech株式会社" width="100" height="100"></a>
+  <div id="main" class="common app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-link" href="#main" data-tab="home.html">
+          <img src="images/FuncTech128.png" alt="FuncTech株式会社" class="brand-logo" width="56" height="56">
+          <div class="brand-meta">
+            <span class="brand-name">FuncTech株式会社</span>
+            <span class="brand-tagline">Salesforce導入・開発支援</span>
+          </div>
+        </a>
+      </div>
+      <div class="top-actions">
+        <a href="#main" data-tab="contact.html" class="md-button md-button--filled">お問い合わせ</a>
       </div>
     </header>
-    <div class="tab-wrap">
-      <button class="tab-btn active" data-tab="company_info.html">会社情報</button>
-      <button class="tab-btn" data-tab="philosophy.html">社是</button>
-      <button class="tab-btn" data-tab="solutions.html">ソリューション</button>
-      <button class="tab-btn" data-tab="news.html">お知らせ</button>
-      <button class="tab-btn" data-tab="recruit.html">採用情報</button>
-      <button class="tab-btn" data-tab="contact.html">お問い合わせ</button>
-      <button class="tab-btn" data-tab="privacy_policy.html">個人情報保護方針</button>
-    </div>
-    <div id="content-area"></div>
+    <nav class="tab-wrap" role="tablist" aria-label="メインナビゲーション">
+      <button class="tab-btn active" data-tab="home.html" type="button" role="tab" aria-selected="true">ホーム</button>
+      <button class="tab-btn" data-tab="company_info.html" type="button" role="tab" aria-selected="false">会社情報</button>
+      <button class="tab-btn" data-tab="philosophy.html" type="button" role="tab" aria-selected="false">社是</button>
+      <button class="tab-btn" data-tab="solutions.html" type="button" role="tab" aria-selected="false">ソリューション</button>
+      <button class="tab-btn" data-tab="news.html" type="button" role="tab" aria-selected="false">お知らせ</button>
+      <button class="tab-btn" data-tab="recruit.html" type="button" role="tab" aria-selected="false">採用情報</button>
+      <button class="tab-btn" data-tab="contact.html" type="button" role="tab" aria-selected="false">お問い合わせ</button>
+      <button class="tab-btn" data-tab="privacy_policy.html" type="button" role="tab" aria-selected="false">個人情報保護方針</button>
+    </nav>
+    <main id="content-area" class="content-area" role="region" aria-live="polite"></main>
     <!--関連リンク -->
     <footer class="footer">
       <div class="contact-container">
