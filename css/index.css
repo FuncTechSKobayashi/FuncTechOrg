@@ -753,6 +753,64 @@ input[type="submit"]:hover {
   display: none;
 }
 
+.app-policy {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  line-height: 1.85;
+}
+
+.app-policy-header,
+.app-policy-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.app-policy h1,
+.app-policy h2,
+.app-policy p {
+  margin: 0;
+}
+
+.app-policy h2 {
+  font-size: 20px;
+  color: var(--md-sys-color-on-surface);
+}
+
+.app-policy-updated {
+  color: var(--md-sys-color-secondary);
+  font-weight: 600;
+}
+
+.app-policy ul {
+  margin: 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 6px;
+}
+
+.app-policy-table-wrap {
+  overflow-x: auto;
+}
+
+.app-policy-table {
+  min-width: 720px;
+}
+
+.app-policy-table th {
+  width: auto;
+}
+
+.app-policy-contact {
+  background: var(--md-sys-color-surface-variant);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: grid;
+  gap: 4px;
+}
+
 .myProjectItem {
   width: 100%;
   display: flex;
