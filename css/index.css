@@ -673,7 +673,8 @@ a:hover {
 }
 
 input,
-textarea {
+textarea,
+select {
   border: 1px solid var(--md-sys-color-outline);
   box-sizing: border-box;
   display: block;
@@ -688,6 +689,10 @@ textarea {
   transition: none;
 }
 
+select {
+  cursor: pointer;
+}
+
 textarea {
   height: auto;
   min-height: 120px;
@@ -695,7 +700,8 @@ textarea {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   outline: none;
   border-color: var(--md-sys-color-primary);
   box-shadow: 0 0 0 3px rgba(27, 110, 243, 0.2);
@@ -721,6 +727,30 @@ input[type="submit"]:hover {
   background: #155bd8;
   transform: translateY(-1px);
   box-shadow: var(--elevation-2);
+}
+
+.app-contact-lead {
+  margin-bottom: 22px;
+}
+
+.app-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.app-contact-table {
+  margin-bottom: 0;
+}
+
+.app-contact-note {
+  margin: 0;
+  font-size: 13px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.app-contact-honeypot {
+  display: none;
 }
 
 .myProjectItem {

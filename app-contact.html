@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>スマートフォンアプリお問い合わせ | FuncTech株式会社</title>
+  <meta name="description" content="FuncTech株式会社が提供するスマートフォンアプリに関するお問い合わせページです。">
+  <meta name="keywords" content="FuncTech株式会社, スマートフォンアプリ, お問い合わせ">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1b6ef3">
+  <link rel="canonical" href="https://www.functech.org/app-contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+  <div id="main" class="common app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-link" href="https://www.functech.org/">
+          <img src="images/FuncTech128.png" alt="FuncTech株式会社" class="brand-logo" width="56" height="56">
+          <div class="brand-meta">
+            <span class="brand-name">FuncTech株式会社</span>
+            <span class="brand-tagline">スマートフォンアプリサポート</span>
+          </div>
+        </a>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <section>
+        <div class="image-container">
+          <img src="images/haikei1.png" alt="背景画像">
+          <div class="image-text">アプリお問い合わせ</div>
+        </div>
+
+        <div class="m70_sph">
+          <div class="app-contact-lead">
+            <h1 class="finish-title">スマートフォンアプリに関するお問い合わせ</h1>
+            <p class="finish-text">アプリのご利用、操作方法、不具合などについて、下記フォームからお問い合わせください。</p>
+          </div>
+
+          <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5h000003Fe8L"
+            method="POST"
+            id="appInquiryForm"
+            novalidate>
+            <input type="hidden" name="orgid" value="00D5h000003Fe8L">
+            <input type="hidden" name="retURL" value="https://www.functech.org/contactfinish.html">
+
+            <div class="contact app-contact-form">
+              <table class="contact-table app-contact-table" style="table-layout: fixed;">
+                <tr>
+                  <td class="contact-item">
+                    <label for="appName">対象アプリ</label>
+                  </td>
+                  <td class="contact-body">
+                    <select id="appName" required>
+                      <option value="">選択してください</option>
+                      <option value="MapTech">MapTech</option>
+                      <option value="その他のスマートフォンアプリ">その他のスマートフォンアプリ</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="contact-item">
+                    <label for="osType">ご利用OS</label>
+                  </td>
+                  <td class="contact-body">
+                    <select id="osType" required>
+                      <option value="">選択してください</option>
+                      <option value="iOS">iOS</option>
+                      <option value="Android">Android</option>
+                      <option value="その他">その他</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="contact-item">
+                    <label for="deviceName">端末名</label>
+                  </td>
+                  <td class="contact-body">
+                    <input id="deviceName" maxlength="80" type="text" placeholder="例: iPhone 15, Pixel 8">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="contact-item">
+                    <label for="appVersion">アプリバージョン</label>
+                  </td>
+                  <td class="contact-body">
+                    <input id="appVersion" maxlength="40" type="text" placeholder="不明な場合は空欄で構いません">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="contact-item">
+                    <label for="name">お名前</label>
+                  </td>
+                  <td class="contact-body">
+                    <input id="name" maxlength="80" name="name" size="20" type="text" required>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="contact-item">
+                    <label for="email">メールアドレス</label>
+                  </td>
+                  <td class="contact-body">
+                    <input id="email" maxlength="80" name="email" size="20" type="email" required>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="contact-item">
+                    <label for="phone">電話番号</label>
+                  </td>
+                  <td class="contact-body">
+                    <input id="phone" maxlength="40" name="phone" size="20" type="text" placeholder="任意">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="contact-item">
+                    <label for="subject">件名</label>
+                  </td>
+                  <td class="contact-body">
+                    <input id="subject" maxlength="60" name="subject" size="20" type="text" required>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="contact-item">
+                    <label for="description">お問い合わせ内容</label>
+                  </td>
+                  <td class="contact-body">
+                    <textarea id="description" name="description" required></textarea>
+                  </td>
+                </tr>
+              </table>
+
+              <div class="app-contact-honeypot" aria-hidden="true">
+                <label for="address">入力しないでください</label>
+                <input type="text" name="address" id="address" value="" tabindex="-1" autocomplete="off">
+              </div>
+
+              <input type="hidden" id="external" name="external" value="1">
+              <p class="app-contact-note">送信内容はSalesforceのケースとして登録され、お問い合わせ対応のために利用します。</p>
+              <input type="submit" name="submit" value="送信する">
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const form = document.getElementById("appInquiryForm");
+      if (!form) {
+        return;
+      }
+
+      function valueOf(id) {
+        const element = document.getElementById(id);
+        return element ? element.value.trim() : "";
+      }
+
+      function focusField(id) {
+        const element = document.getElementById(id);
+        if (element) {
+          element.focus();
+        }
+      }
+
+      function fail(message, id) {
+        alert(message);
+        focusField(id);
+        return false;
+      }
+
+      form.addEventListener("submit", function (e) {
+        const requiredFields = [
+          ["appName", "対象アプリを選択してください。"],
+          ["osType", "ご利用OSを選択してください。"],
+          ["name", "お名前を入力してください。"],
+          ["email", "メールアドレスを入力してください。"],
+          ["subject", "件名を入力してください。"],
+          ["description", "お問い合わせ内容を入力してください。"]
+        ];
+
+        for (const field of requiredFields) {
+          if (!valueOf(field[0])) {
+            e.preventDefault();
+            return fail(field[1], field[0]);
+          }
+        }
+
+        const honeypot = valueOf("address");
+        if (honeypot) {
+          e.preventDefault();
+          return fail("送信エラーが発生しました。再試行してください。", "address");
+        }
+
+        const email = valueOf("email");
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          e.preventDefault();
+          return fail("正しいメールアドレスを入力してください。", "email");
+        }
+
+        const phone = valueOf("phone");
+        const phonePattern = /^[0-9+\-\s()]+$/;
+        if (phone && !phonePattern.test(phone)) {
+          e.preventDefault();
+          return fail("正しい電話番号を入力してください。", "phone");
+        }
+
+        const subject = document.getElementById("subject");
+        const description = document.getElementById("description");
+        const originalSubject = subject.dataset.originalValue || subject.value.trim();
+        const originalDescription = description.dataset.originalValue || description.value.trim();
+        const combinedText = `${originalSubject}\n${originalDescription}`;
+        if (
+          combinedText.indexOf("スマートセールス") !== -1 ||
+          combinedText.indexOf("M&A") !== -1 ||
+          combinedText.indexOf("リトライブ") !== -1
+        ) {
+          e.preventDefault();
+          return fail("問い合わせを受け付けすることができません。", "description");
+        }
+
+        subject.dataset.originalValue = originalSubject;
+        description.dataset.originalValue = originalDescription;
+        subject.value = `【アプリ問い合わせ】${originalSubject}`.slice(0, 80);
+        description.value = [
+          "スマートフォンアプリに関するお問い合わせ",
+          "",
+          `対象アプリ: ${valueOf("appName")}`,
+          `ご利用OS: ${valueOf("osType")}`,
+          `端末名: ${valueOf("deviceName") || "未入力"}`,
+          `アプリバージョン: ${valueOf("appVersion") || "未入力"}`,
+          `お名前: ${valueOf("name")}`,
+          `メールアドレス: ${email}`,
+          `電話番号: ${phone || "未入力"}`,
+          `件名: ${originalSubject}`,
+          "",
+          "お問い合わせ内容:",
+          originalDescription
+        ].join("\n");
+
+        return true;
+      });
+    })();
+  </script>
+</body>
+</html>
