@@ -346,6 +346,52 @@ a:hover {
   border-radius: 0;
 }
 
+.home-hero {
+  margin: 0;
+  padding: clamp(42px, 7vw, 82px) 32px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(236, 248, 255, 0.8)),
+    url("../images/haikei.png") center / cover;
+  border-bottom: 1px solid var(--md-sys-color-outline);
+}
+
+.home-hero__copy {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+}
+
+.home-hero__label {
+  margin: 0 0 14px;
+  color: var(--md-sys-color-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.home-hero h1 {
+  max-width: 780px;
+  margin: 0;
+  color: var(--md-sys-color-on-surface);
+  font-size: 46px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.home-hero__copy > p:not(.home-hero__label) {
+  max-width: 720px;
+  margin: 22px 0 0;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
 .subtitle02_01 {
   color: var(--md-sys-color-on-surface);
   font-size: 26px;
@@ -1469,6 +1515,10 @@ input[type="submit"]:hover {
     padding: 0;
   }
 
+  .home-hero h1 {
+    font-size: 36px;
+  }
+
   .catchcopy-text {
     font-size: 16px;
   }
@@ -1556,6 +1606,14 @@ input[type="submit"]:hover {
 
   .catchcopy--image {
     margin: 0;
+  }
+
+  .home-hero {
+    padding: 34px 20px;
+  }
+
+  .home-hero h1 {
+    font-size: 30px;
   }
 
   .business-group {
