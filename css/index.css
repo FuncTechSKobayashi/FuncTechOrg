@@ -815,6 +815,23 @@ select {
   transition: none;
 }
 
+.contact input:not([type="submit"]):not([type="hidden"]),
+.contact textarea,
+.contact select {
+  background: #ffffff;
+  border-color: #b8c3d3;
+  box-shadow: inset 0 1px 2px rgba(19, 28, 45, 0.05);
+}
+
+.contact input:not([type="submit"]):not([type="hidden"]):disabled,
+.contact textarea:disabled,
+.contact select:disabled {
+  background: #e8edf4;
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
 select {
   cursor: pointer;
 }
@@ -932,12 +949,18 @@ input[type="submit"]:hover {
 }
 
 .mobile-apps-lead {
+  display: grid;
+  gap: 8px;
   margin-bottom: 18px;
 }
 
 .mobile-apps-lead p {
   margin: 0;
   color: var(--md-sys-color-on-surface-variant);
+}
+
+.mobile-apps-lead .solution-links {
+  margin-top: 2px;
 }
 
 .mobile-app-list {
