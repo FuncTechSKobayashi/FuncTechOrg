@@ -7,8 +7,29 @@
     </div>
     <div>
         <div class="inner m70_sph">
+            <div class="contact-flow">
+                <h3 class="contact-flow-title">お問い合わせ窓口のご案内</h3>
+                <p class="contact-flow-lead">ご用件に合わせて窓口をお選びください。</p>
+                <div class="mobile-feature-grid">
+                    <article class="mobile-feature">
+                        <h3>アプリをご利用の方・個人の方</h3>
+                        <p>当社のスマートフォンアプリの使い方、不具合、サブスクリプション、プライバシーに関するお問い合わせや、「こんなアプリがほしい」というご相談はこちらです。</p>
+                        <div class="solution-links">
+                            <a class="solution-link" href="app-contact.html">アプリお問い合わせへ</a>
+                        </div>
+                    </article>
+                    <article class="mobile-feature">
+                        <h3>法人のお客さま</h3>
+                        <p>Salesforceの開発・運用支援、MapTechの導入、システムコンサルティングのご相談は、下のフォームからお問い合わせください。</p>
+                        <div class="solution-links">
+                            <a class="solution-link" href="#contactFlow">法人向けフォームへ</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
             <div id="contactFlow" class="contact-flow">
-                <h3 class="contact-flow-title">ご相談内容の確認</h3>
+                <h3 class="contact-flow-title">法人のお客さま：ご相談内容の確認</h3>
                 <p class="contact-flow-lead">営業・提携のご提案は受け付けておりません。対象のご相談のみフォームが表示されます。</p>
                 <div class="contact-flow-steps">
                     <div class="contact-flow-step">
@@ -16,23 +37,19 @@
                         <p class="contact-step-title">ご相談区分を選択</p>
                         <div class="contact-options">
                             <label class="contact-option">
-                                <input type="radio" name="inquiry_type" value="salesforce_dev">
+                                <input type="radio" name="inquiry_type" value="salesforce_dev" data-label="Salesforce開発・運用支援">
                                 <span class="contact-option-label">Salesforce開発・運用支援</span>
                             </label>
                             <label class="contact-option">
-                                <input type="radio" name="inquiry_type" value="maptech">
+                                <input type="radio" name="inquiry_type" value="maptech" data-label="Salesforce地図アプリ（MapTech）の導入相談">
                                 <span class="contact-option-label">Salesforce地図アプリ（MapTech）の導入相談</span>
                             </label>
                             <label class="contact-option">
-                                <input type="radio" name="inquiry_type" value="consulting">
+                                <input type="radio" name="inquiry_type" value="consulting" data-label="システムコンサルティング（IT/業務）">
                                 <span class="contact-option-label">システムコンサルティング（IT/業務）</span>
                             </label>
                             <label class="contact-option">
-                                <input type="radio" name="inquiry_type" value="public_app_consultation">
-                                <span class="contact-option-label">育児・子供の教育などのお困りごと解決アプリのご相談</span>
-                            </label>
-                            <label class="contact-option">
-                                <input type="radio" name="inquiry_type" value="other">
+                                <input type="radio" name="inquiry_type" value="other" data-label="その他・営業/広告/提携のご提案">
                                 <span class="contact-option-label">その他・営業/広告/提携のご提案</span>
                             </label>
                         </div>
@@ -53,19 +70,23 @@
                     </div>
                     <div class="contact-flow-step">
                         <span class="contact-step-label">Step 3</span>
-                        <p class="contact-step-title">現在の状況（任意）</p>
+                        <p class="contact-step-title">Salesforceのご利用状況（任意）</p>
                         <div class="contact-options">
                             <label class="contact-option">
-                                <input type="radio" name="project_stage" value="using">
+                                <input type="radio" name="project_stage" value="using" data-label="既にSalesforce利用中">
                                 <span class="contact-option-label">既にSalesforce利用中</span>
                             </label>
                             <label class="contact-option">
-                                <input type="radio" name="project_stage" value="considering">
+                                <input type="radio" name="project_stage" value="considering" data-label="導入検討中">
                                 <span class="contact-option-label">導入検討中</span>
                             </label>
                             <label class="contact-option">
-                                <input type="radio" name="project_stage" value="research">
+                                <input type="radio" name="project_stage" value="research" data-label="情報収集中">
                                 <span class="contact-option-label">情報収集中</span>
+                            </label>
+                            <label class="contact-option">
+                                <input type="radio" name="project_stage" value="not_applicable" data-label="Salesforceは利用していない・該当しない">
+                                <span class="contact-option-label">該当しない</span>
                             </label>
                         </div>
                     </div>
@@ -88,7 +109,15 @@
                         <table class="contact-table" style="table-layout: fixed;">
                             <tr>
                                 <td class="contact-item">
-                                    <label for="name">会社名</label>
+                                    <label for="company">会社名</label>
+                                </td>
+                                <td class="contact-body">
+                                    <input id="company" style="width: 100%;" maxlength="80" name="company" size="20" type="text" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="contact-item">
+                                    <label for="name">ご担当者名</label>
                                 </td>
                                 <td class="contact-body">
                                     <input id="name" style="width: 100%;" maxlength="80" name="name" size="20" type="text" required />
@@ -115,7 +144,7 @@
                                     <label for="subject">件名</label>
                                 </td>
                                 <td class="contact-body">
-                                    <input id="subject" style="width: 100%;" maxlength="80" name="subject" size="20" type="text" required />
+                                    <input id="subject" style="width: 100%;" maxlength="60" name="subject" size="20" type="text" required />
                                 </td>
                             </tr>
                             <tr>
@@ -134,7 +163,7 @@
 
                         <input type="hidden" id="external" name="external" value="1" />
                         <br>
-                        <input type="submit" name="submit"
+                        <input type="submit" name="submit" value="送信する"
                             style="width: 200px; height: 50px; color: black; cursor:pointer;">
                     </div>
                 </form>
@@ -154,6 +183,11 @@
             function getSelectedValue(name) {
                 const checked = flow.querySelector(`input[name="${name}"]:checked`);
                 return checked ? checked.value : "";
+            }
+
+            function getSelectedLabel(name) {
+                const checked = flow.querySelector(`input[name="${name}"]:checked`);
+                return checked ? checked.dataset.label : "";
             }
 
             function isEligible() {
@@ -208,11 +242,15 @@
                     alert("送信エラーが発生しました。再試行してください。");
                     return false;
                 }
-                const descriptionText = document.getElementById("description").value;
+                const subject = document.getElementById("subject");
+                const description = document.getElementById("description");
+                const originalSubject = subject.dataset.originalValue || subject.value.trim();
+                const originalDescription = description.dataset.originalValue || description.value.trim();
+                const combinedText = `${originalSubject}\n${originalDescription}`;
                 if (
-                    descriptionText.indexOf("スマートセールス") !== -1 ||
-                    descriptionText.indexOf("M&A") !== -1 ||
-                    descriptionText.indexOf("リトライブ") !== -1
+                    combinedText.indexOf("スマートセールス") !== -1 ||
+                    combinedText.indexOf("M&A") !== -1 ||
+                    combinedText.indexOf("リトライブ") !== -1
                 ) {
                     e.preventDefault();
                     alert("問い合わせを受け付けすることができません。");
@@ -237,7 +275,7 @@
                     return false;
                 }
 
-                const requiredFields = ["name", "subject", "description"];
+                const requiredFields = ["company", "name", "subject", "description"];
                 for (let field of requiredFields) {
                     const value = document.getElementById(field).value.trim();
                     if (!value) {
@@ -247,6 +285,25 @@
                         return false;
                     }
                 }
+
+                // Step 1〜3 の選択はフォームの項目ではないため、本文に含めて送る
+                subject.dataset.originalValue = originalSubject;
+                description.dataset.originalValue = originalDescription;
+                subject.value = `【法人】${originalSubject}`.slice(0, 80);
+                description.value = [
+                    "法人のお客さまからのお問い合わせ",
+                    "",
+                    `ご相談区分: ${getSelectedLabel("inquiry_type")}`,
+                    `Salesforceのご利用状況: ${getSelectedLabel("project_stage") || "未選択"}`,
+                    `会社名: ${document.getElementById("company").value.trim()}`,
+                    `ご担当者名: ${document.getElementById("name").value.trim()}`,
+                    `メールアドレス: ${email}`,
+                    `電話番号: ${phone}`,
+                    `件名: ${originalSubject}`,
+                    "",
+                    "お問い合わせ内容:",
+                    originalDescription
+                ].join("\n");
 
                 return true;
             });

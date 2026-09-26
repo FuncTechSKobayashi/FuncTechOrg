@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="./css/index.css?v=20260904-mobile-fix">
+  <link rel="stylesheet" href="./css/index.css?v=20260926-manarizu">
 </head>
 <body>
   <div id="main" class="common app-shell">
@@ -42,7 +42,8 @@
         <div class="m70_sph">
           <div class="app-contact-lead">
             <h1 class="finish-title">スマートフォンアプリに関するお問い合わせ</h1>
-            <p class="finish-text">アプリのご利用、操作方法、不具合などについて、下記フォームからお問い合わせください。</p>
+            <p class="finish-text">アプリのご利用、操作方法、不具合、サブスクリプション、プライバシーなどについて、下記フォームからお問い合わせください。「こんなアプリがほしい」というお困りごとのご相談もこちらで受け付けています。</p>
+            <p class="finish-text">Salesforceの開発支援やMapTechの導入など、法人のお客さまのご相談は<a href="https://www.functech.org/">トップページ</a>の「お問い合わせ」からお願いいたします。</p>
           </div>
 
           <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5h000003Fe8L"
@@ -61,10 +62,28 @@
                   <td class="contact-body">
                     <select id="appName" required>
                       <option value="">選択してください</option>
-                      <option value="MapTech">MapTech</option>
-                      <option value="おもいでパズル">おもいでパズル</option>
+                      <option value="マナリズ">マナリズ</option>
                       <option value="すくすくノート">すくすくノート</option>
-                      <option value="その他のスマートフォンアプリ">その他のスマートフォンアプリ</option>
+                      <option value="おもいでパズル">おもいでパズル</option>
+                      <option value="特定のアプリではない">特定のアプリではない（新しいアプリのご相談など）</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="contact-item">
+                    <label for="inquiryCategory">お問い合わせの種類</label>
+                  </td>
+                  <td class="contact-body">
+                    <select id="inquiryCategory" required>
+                      <option value="">選択してください</option>
+                      <option value="使い方について">使い方について</option>
+                      <option value="不具合の報告">不具合の報告</option>
+                      <option value="サブスクリプション・購入について">サブスクリプション・購入について</option>
+                      <option value="プライバシー・データの取り扱いについて">プライバシー・データの取り扱いについて</option>
+                      <option value="問題や表示内容の誤り">問題や表示内容の誤り</option>
+                      <option value="ご意見・ご要望">ご意見・ご要望</option>
+                      <option value="アプリ化してほしいお困りごとのご相談">アプリ化してほしいお困りごとのご相談</option>
+                      <option value="その他">その他</option>
                     </select>
                   </td>
                 </tr>
@@ -179,9 +198,11 @@
       }
 
       form.addEventListener("submit", function (e) {
+        const isAppSelected = valueOf("appName") !== "特定のアプリではない";
         const requiredFields = [
           ["appName", "対象アプリを選択してください。"],
-          ["osType", "ご利用OSを選択してください。"],
+          ["inquiryCategory", "お問い合わせの種類を選択してください。"],
+          ...(isAppSelected ? [["osType", "ご利用OSを選択してください。"]] : []),
           ["name", "お名前を入力してください。"],
           ["email", "メールアドレスを入力してください。"],
           ["subject", "件名を入力してください。"],
@@ -236,7 +257,8 @@
           "スマートフォンアプリに関するお問い合わせ",
           "",
           `対象アプリ: ${valueOf("appName")}`,
-          `ご利用OS: ${valueOf("osType")}`,
+          `お問い合わせの種類: ${valueOf("inquiryCategory")}`,
+          `ご利用OS: ${valueOf("osType") || "未選択"}`,
           `端末名: ${valueOf("deviceName") || "未入力"}`,
           `アプリバージョン: ${valueOf("appVersion") || "未入力"}`,
           `お名前: ${valueOf("name")}`,
