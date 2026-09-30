@@ -1072,10 +1072,6 @@ input[type="submit"]:hover {
   transform: rotate(-4deg);
 }
 
-.mobile-app-thumb-frame--icon {
-  aspect-ratio: 1;
-}
-
 .omoide-content {
   display: flex;
   flex-direction: column;
