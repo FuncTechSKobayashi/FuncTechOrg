@@ -1072,21 +1072,6 @@ input[type="submit"]:hover {
   transform: rotate(-4deg);
 }
 
-.app-hero-icon-wrap {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.app-hero-icon {
-  display: block;
-  width: min(100%, 240px);
-  height: auto;
-  border-radius: 22%;
-  box-shadow: 0 18px 34px rgba(14, 23, 44, 0.28);
-}
-
 .mobile-app-thumb-frame--icon {
   aspect-ratio: 1;
 }
