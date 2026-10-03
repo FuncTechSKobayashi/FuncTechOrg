@@ -123,6 +123,7 @@
     }
 
     let navigationId = 0;
+    let renderedPath = window.location.pathname;
 
     function navigate(url, push) {
         const currentId = ++navigationId;
@@ -136,6 +137,7 @@
                 history.pushState({}, "", url.pathname + url.search + url.hash);
             }
             applyPage(page);
+            renderedPath = url.pathname;
             setActiveNav(url.pathname);
             content.classList.remove("is-loading");
             const target = url.hash ? document.getElementById(url.hash.slice(1)) : null;
@@ -175,6 +177,9 @@
     });
 
     window.addEventListener("popstate", function () {
+        if (window.location.pathname === renderedPath) {
+            return; // Only the #hash changed; keep the page (and any form input) as is.
+        }
         navigate(new URL(window.location.href), false);
     });
 
