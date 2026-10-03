@@ -1,0 +1,30 @@
+# FuncTech株式会社
+
+> FuncTech株式会社（英文表記：FUNCTECH K.K.、2021年4月設立）は、Salesforceの導入・開発支援と、Salesforce向け地図アプリ「MapTech」の提供、iPhone・iPad向けアプリの開発・提供を行う日本の会社です。iPhoneアプリはすべてApp Storeから無料でダウンロードできます。
+
+## iPhone・iPadアプリ
+
+- [マナリズ](https://www.functech.org/apps/manarizu/): 答えを手書きで書いて解く学習アプリ。小学1〜6年の国語・算数・理科・社会などの問題に、マス目へ指やApple Pencilで書いて答えると端末内で読み取って採点する。漢字・ひらがな・カタカナ・数字の書き取り、今日のおすすめ問題、単元・キーワード検索、復習、家族ごとのプロフィールに対応。iPhone・iPad（iOS 26以降）。基本無料（広告あり）、自動更新サブスクリプション「プレミアム」で広告の非表示と毎週届く定期配信問題。App Store: https://apps.apple.com/jp/app/%E3%83%9E%E3%83%8A%E3%83%AA%E3%82%BA/id6816197366
+- [すくすくノート](https://www.functech.org/apps/sukusukunote/): 育児記録アプリ（App Store名「育児記録 - すくすくノート」）。授乳（左右のタイマー）・ミルク・搾乳・おむつ・睡眠・離乳食・おくすり・体重・身長・体温・検診予定を記録。iCloudで夫婦・家族と記録を共有でき、Apple Watchからも記録できる。iPhone・iPad・Apple Watch（iOS 17以降）。無料、広告なし、アプリ内課金なし。App Store: https://apps.apple.com/jp/app/%E8%82%B2%E5%85%90%E8%A8%98%E9%8C%B2-%E3%81%99%E3%81%8F%E3%81%99%E3%81%8F%E3%83%8E%E3%83%BC%E3%83%88/id6774708243
+- [おもいでパズル](https://www.functech.org/apps/omoide-puzzle/): 家族の写真やおえかきからパズルを作って遊べる幼児向けアプリ。難易度は星1〜5（4〜16ピース）、色・数・ことば・場所の学び、シール帳、保護者による問題作成に対応。写真は端末内だけで扱う。iPhone・iPad（iOS 17.6以降）。無料、広告なし、アプリ内課金なし。App Store: https://apps.apple.com/jp/app/%E3%81%8A%E3%82%82%E3%81%84%E3%81%A7%E3%83%91%E3%82%BA%E3%83%AB/id6767087163
+- [アプリ一覧](https://www.functech.org/apps/): 上記3アプリの一覧
+
+## Salesforce向けソリューション
+
+- [MapTech](https://www.functech.org/solutions/maptech/): Salesforceのリードや取引先をGoogle マップ上に表示する営業支援用の地図アプリ。担当者別の色分け・条件フィルタ、訪問ルート作成、担当エリアや空白エリアの把握に対応。Salesforce AppExchangeで公開中: https://appexchangejp.salesforce.com/appxListingDetail?listingId=a0N4V00000DZTwAUAX
+- [ソリューション](https://www.functech.org/solutions/): Salesforce導入支援・カスタマイズ開発（Apex、Visualforce、LWC、フロー）、外部サービス連携（クラウドサイン、Shopify、Stripe、Google API、SMS・LINE公式アカウントなど）、Salesforceデータ移行、開発プロセス改善（チケット運用、CI/CD）
+
+## 会社情報・お問い合わせ
+
+- [会社案内](https://www.functech.org/company/): 会社概要（設立 2021年4月1日、事業内容：システム開発、システムコンサルティング、保守・運用）
+- [お問い合わせ（法人向け）](https://www.functech.org/contact/): Salesforce開発支援、MapTech導入、システムコンサルティングのご相談
+- [アプリお問い合わせ](https://www.functech.org/app-contact.html): アプリの使い方・不具合・サブスクリプション・プライバシーなどのお問い合わせ
+- [お知らせ](https://www.functech.org/news/)
+
+## Optional
+
+- [マナリズ プライバシーポリシー](https://www.functech.org/manarizu_privacy_policy.html)
+- [すくすくノート プライバシーポリシー](https://www.functech.org/sukusukunote_privacy_policy.html)
+- [おもいでパズル プライバシーポリシー](https://www.functech.org/omoide_puzzle_privacy_policy.html)
+- [個人情報保護方針](https://www.functech.org/privacy/)
+- [社是・経営理念](https://www.functech.org/philosophy/)
