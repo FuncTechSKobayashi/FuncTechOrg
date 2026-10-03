@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>マナリズ｜手書きで解く小学生の学習アプリ（漢字・計算・国語・算数） | FuncTech株式会社</title>
+  <meta name="description" content="マナリズは、漢字や計算の答えをマス目に手書きして解くiPhone・iPad向け学習アプリです。小学1〜6年の国語・算数・理科・社会などの問題を、Apple Pencilにも対応した手書き入力で学べます。基本無料。">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1b6ef3">
+  <meta name="ga4-measurement-id" content="G-98DR4BQSNS">
+  <link rel="canonical" href="https://www.functech.org/apps/manarizu/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FuncTech株式会社">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="マナリズ｜手書きで解く小学生の学習アプリ（漢字・計算・国語・算数） | FuncTech株式会社">
+  <meta property="og:description" content="マナリズは、漢字や計算の答えをマス目に手書きして解くiPhone・iPad向け学習アプリです。小学1〜6年の国語・算数・理科・社会などの問題を、Apple Pencilにも対応した手書き入力で学べます。基本無料。">
+  <meta property="og:url" content="https://www.functech.org/apps/manarizu/">
+  <meta property="og:image" content="https://www.functech.org/images/manarizu/manarizu-handwriting-concept-v1.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/images/FuncTech128.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/index.css?v=20261004-pages">
+  <script src="/script/index.js?v=20261004-pages" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.functech.org/#organization",
+      "name": "FuncTech株式会社",
+      "alternateName": [
+        "FuncTech",
+        "FUNCTECH K.K."
+      ],
+      "url": "https://www.functech.org/",
+      "logo": "https://www.functech.org/images/FuncTech128.png",
+      "email": "info@functech.org",
+      "foundingDate": "2021-04-01",
+      "description": "Salesforceの導入・開発支援、Salesforce向け地図アプリ「MapTech」の提供、iPhone・iPad向けアプリの開発・提供を行う会社です。",
+      "knowsAbout": [
+        "Salesforce",
+        "Salesforce導入支援",
+        "Salesforceデータ移行",
+        "Apex",
+        "Lightning Web Components",
+        "iOSアプリ開発",
+        "Webシステム開発"
+      ],
+      "sameAs": [
+        "https://apps.apple.com/jp/developer/functech-k-k/id1896375640",
+        "https://appexchangejp.salesforce.com/appxListingDetail?listingId=a0N4V00000DZTwAUAX"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.functech.org/#website",
+      "url": "https://www.functech.org/",
+      "name": "FuncTech株式会社",
+      "inLanguage": "ja",
+      "publisher": {
+        "@id": "https://www.functech.org/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.functech.org/apps/manarizu/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://www.functech.org/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "モバイルアプリ",
+          "item": "https://www.functech.org/apps/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "マナリズ",
+          "item": "https://www.functech.org/apps/manarizu/"
+        }
+      ]
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://www.functech.org/apps/manarizu/#app",
+      "url": "https://www.functech.org/apps/manarizu/",
+      "inLanguage": "ja",
+      "publisher": {
+        "@id": "https://www.functech.org/#organization"
+      },
+      "author": {
+        "@id": "https://www.functech.org/#organization"
+      },
+      "description": "マナリズは、漢字や計算の答えをマス目に手書きして解くiPhone・iPad向け学習アプリです。小学1〜6年の国語・算数・理科・社会などの問題を、Apple Pencilにも対応した手書き入力で学べます。基本無料。",
+      "featureList": [
+        "基本学習問題：小学1〜6年の国語・算数・理科・社会などの問題を、学年・教科・単元から選んで学習できます。",
+        "今日の問題：学年と勉強したい教科の中から、まだ解いていない問題を優先して、その日のおすすめ（最大10問）を用意します。",
+        "問題の検索：単元名や問題文のキーワードで、学習したい問題を探せます。",
+        "定期配信問題：毎週、新しい問題が配信されます（プレミアム）。アプリを更新しなくても新しい回が追加されます。",
+        "手書き回答：マス目に指やApple Pencilで書いた文字を端末内で読み取って採点します。漢字・ひらがな・カタカナ・数字など、問題の指示に合った文字で答えます。マス目の拡大・縮小、書き直し、1マスずつの消去もできます。",
+        "解説・出典：回答後に正解、解説、出典を表示します。",
+        "復習・履歴・ブックマーク：過去の回答、正答率、ブックマークした問題を確認し、復習できます。",
+        "複数プロフィール：ニックネーム、年齢、学年、教科をプロフィールごとに設定できます。",
+        "オフライン学習：一度受け取った問題は、通信できない場所でも学習できます。",
+        "iPhone / iPad対応：iPhoneとiPadで利用できます。"
+      ],
+      "name": "マナリズ",
+      "operatingSystem": "iOS 26以降, iPadOS 26以降",
+      "applicationCategory": "EducationalApplication",
+      "contentRating": "4+",
+      "datePublished": "2026-10-02",
+      "installUrl": "https://apps.apple.com/jp/app/%E3%83%9E%E3%83%8A%E3%83%AA%E3%82%BA/id6816197366",
+      "downloadUrl": "https://apps.apple.com/jp/app/%E3%83%9E%E3%83%8A%E3%83%AA%E3%82%BA/id6816197366",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "JPY"
+      },
+      "isAccessibleForFree": true,
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "student"
+      },
+      "keywords": "手書き,漢字,計算,算数,国語,理科,社会,ドリル,小学生,問題集,ひらがな,カタカナ,書き取り,Apple Pencil",
+      "image": "https://www.functech.org/images/manarizu/manarizu-handwriting-concept-v1.png",
+      "screenshot": "https://www.functech.org/images/manarizu/manarizu-handwriting-concept-v1.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.functech.org/apps/manarizu/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "無料で使えますか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "基本学習問題と「今日の問題」は無料で利用できます。無料版では回答画面の下部に広告が表示されます。広告の非表示と定期配信問題の学習は、自動更新サブスクリプション「プレミアム」でご利用いただけます。価格はApp Storeでご確認ください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "漢字を手書きで練習できるアプリですか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。漢字の書き取りやひらがな・カタカナ、算数の答えなどを、画面のマス目に手書きで書いて答えます。書いた文字は端末の中で読み取り、その場で採点します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "どの学年・教科に対応していますか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "基本学習問題は、小学1〜6年の国語・算数・理科・社会などに対応しています。学年・教科・単元を選んで学習できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "iPadやApple Pencilで使えますか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。iPhoneとiPadに対応しており、指でもApple Pencilでも答えを書けます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "プレミアムの解約方法を教えてください",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "本アプリの「設定」＞「サブスクリプションを管理・解約」、またはiPhoneの「設定」＞ Apple アカウント ＞「サブスクリプション」から解約できます。解約後も、期間の終了日までは利用できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ログインは必要ですか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "必要ありません。学習履歴は端末内に保存されます。アプリを削除すると学習履歴も削除されますのでご注意ください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "問題はどのように作られていますか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AIを活用して作成した問題を、当社で内容を確認・承認したうえで配信しています。内容に誤りを見つけた場合は、お問い合わせからお知らせください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "中学生や高校生も使えますか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "現在は小学生向けの問題を配信しています。中学・高校・プログラミングなどの問題も、今後追加する予定です。配信が始まると、アプリを更新しなくても表示されます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "テストや成績評価に使えますか",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "マナリズは自習用のアプリです。正式な試験や成績評価には使用しないでください。"
+          }
+        }
+      ],
+      "isPartOf": {
+        "@id": "https://www.functech.org/apps/manarizu/#webpage"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.functech.org/apps/manarizu/#webpage",
+      "url": "https://www.functech.org/apps/manarizu/",
+      "name": "マナリズ｜手書きで解く小学生の学習アプリ（漢字・計算・国語・算数） | FuncTech株式会社",
+      "description": "マナリズは、漢字や計算の答えをマス目に手書きして解くiPhone・iPad向け学習アプリです。小学1〜6年の国語・算数・理科・社会などの問題を、Apple Pencilにも対応した手書き入力で学べます。基本無料。",
+      "inLanguage": "ja",
+      "isPartOf": {
+        "@id": "https://www.functech.org/#website"
+      },
+      "about": {
+        "@id": "https://www.functech.org/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://www.functech.org/apps/manarizu/#breadcrumb"
+      },
+      "mainEntity": {
+        "@id": "https://www.functech.org/apps/manarizu/#app"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div id="main" class="common app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-link" href="/">
+          <img src="/images/FuncTech128.png" alt="FuncTech株式会社" class="brand-logo" width="56" height="56">
+          <div class="brand-meta">
+            <span class="brand-name">FuncTech株式会社</span>
+            <span class="brand-tagline">Salesforce導入・開発支援 / iPhoneアプリ開発</span>
+          </div>
+        </a>
+      </div>
+      <div class="top-actions">
+        <a href="/contact/" class="md-button md-button--filled">お問い合わせ</a>
+      </div>
+    </header>
+    <nav class="tab-wrap" aria-label="メインナビゲーション">
+      <a class="tab-btn" href="/">ホーム</a>
+      <a class="tab-btn" href="/company/">会社情報</a>
+      <a class="tab-btn" href="/philosophy/">社是</a>
+      <a class="tab-btn" href="/solutions/">ソリューション</a>
+      <a class="tab-btn active" href="/apps/" aria-current="page">モバイルアプリ</a>
+      <a class="tab-btn" href="/news/">お知らせ</a>
+      <a class="tab-btn" href="/recruit/">採用情報</a>
+      <a class="tab-btn" href="/contact/">お問い合わせ</a>
+      <a class="tab-btn" href="/privacy/">個人情報保護方針</a>
+    </nav>
+    <main id="content-area" class="content-area">
+<section id="manarizu">
+    <div class="omoide-hero">
+        <div class="omoide-hero-copy">
+            <span class="mobile-app-status">マナリズ</span>
+            <h1>毎日の自習を、四択と手書きで。</h1>
+            <p>マナリズは、答えを手書きで書いて解くiPhone・iPad向けの学習アプリです。小学1〜6年の国語・算数・理科・社会などの問題に、マス目へ指やApple Pencilで書いて答えると、文字を読み取って採点します。プロフィールごとに学習記録を分け、毎日の「今日の問題」で学習を続けやすくします。</p>
+            <div class="solution-links">
+                <a class="solution-link" href="https://apps.apple.com/jp/app/%E3%83%9E%E3%83%8A%E3%83%AA%E3%82%BA/id6816197366" target="_blank" rel="noopener">App Storeで見る</a>
+                <a class="solution-link" href="/apps/">アプリ一覧へ</a>
+                <a class="solution-link" href="/manarizu_privacy_policy.html">プライバシーポリシー</a>
+                <a class="solution-link" href="/app-contact.html">お問い合わせ</a>
+            </div>
+        </div>
+        <div class="omoide-hero-screens" aria-label="マナリズの画面例">
+            <img class="phone-shot phone-shot--front" src="/images/manarizu/manarizu-handwriting-concept-v1.png" alt="手書きで漢字を書いて答えるマナリズの回答画面" loading="eager" decoding="async">
+        </div>
+    </div>
+
+    <div class="inner m70_sph omoide-content">
+        <section class="omoide-section">
+            <h2 class="RedText">アプリ概要</h2>
+            <div class="app-policy-table-wrap">
+                <table class="tableType01 app-policy-table">
+                    <tbody>
+                        <tr>
+                            <th>アプリ名</th>
+                            <td>マナリズ</td>
+                        </tr>
+                        <tr>
+                            <th>提供元</th>
+                            <td>FuncTech株式会社</td>
+                        </tr>
+                        <tr>
+                            <th>対応端末</th>
+                            <td>iPhone、iPad（iOS / iPadOS 26以降）</td>
+                        </tr>
+                        <tr>
+                            <th>価格</th>
+                            <td>基本無料（回答画面の下部に広告を表示）。自動更新サブスクリプション「プレミアム」で、広告の非表示と定期配信問題の学習が利用できます。</td>
+                        </tr>
+                        <tr>
+                            <th>対象</th>
+                            <td>小学生（基本学習問題は小学1〜6年）。中学・高校・プログラミングなどの問題も追加予定です。</td>
+                        </tr>
+                        <tr>
+                            <th>カテゴリ</th>
+                            <td>教育（App Storeの年齢区分：4+）</td>
+                        </tr>
+                        <tr>
+                            <th>ダウンロード</th>
+                            <td><a href="https://apps.apple.com/jp/app/%E3%83%9E%E3%83%8A%E3%83%AA%E3%82%BA/id6816197366" target="_blank" rel="noopener">App Store（マナリズ）</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="omoide-section">
+            <h2 class="RedText">こんな方におすすめ</h2>
+            <ul class="omoide-steps">
+                <li>子どもが漢字・ひらがな・カタカナを、手書きで練習できるアプリを探している方</li>
+                <li>算数の答えを数字で書いて解く練習をさせたい方</li>
+                <li>小学生の国語・算数・理科・社会を、学年や単元を選んで復習させたい方</li>
+                <li>iPadとApple Pencilで、紙のドリルのように書いて学ばせたい方</li>
+                <li>きょうだいで1台のiPhone・iPadを使い、学習記録を分けたい方</li>
+                <li>通信できない場所でも勉強できる学習アプリを探している方</li>
+            </ul>
+        </section>
+
+        <section class="omoide-section">
+            <h2 class="RedText">マナリズでできること</h2>
+            <div class="mobile-feature-grid">
+                <article class="mobile-feature">
+                    <h3>今日の問題</h3>
+                    <p>プロフィールの学年と、選んだ教科に合わせて、その日に取り組む問題をおすすめします。</p>
+                </article>
+                <article class="mobile-feature">
+                    <h3>四択と手書きで回答</h3>
+                    <p>四択に加えて、漢字や計算などは手書きで答えられます。書いた文字は端末内で読み取って採点します。</p>
+                </article>
+                <article class="mobile-feature">
+                    <h3>解説と復習</h3>
+                    <p>回答後に正解と解説、出典を確認できます。間違えた問題やブックマークした問題を、あとから復習できます。</p>
+                </article>
+                <article class="mobile-feature">
+                    <h3>家族でプロフィールを分けて利用</h3>
+                    <p>1台の端末でも、プロフィールごとに学習履歴や正答率を分けて記録できます。</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="omoide-section">
+            <h2 class="RedText">機能一覧</h2>
+            <div class="app-policy-table-wrap">
+                <table class="tableType01 app-policy-table">
+                    <thead>
+                        <tr>
+                            <th>機能</th>
+                            <th>内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>基本学習問題</td>
+                            <td>小学1〜6年の国語・算数・理科・社会などの問題を、学年・教科・単元から選んで学習できます。</td>
+                        </tr>
+                        <tr>
+                            <td>今日の問題</td>
+                            <td>学年と勉強したい教科の中から、まだ解いていない問題を優先して、その日のおすすめ（最大10問）を用意します。</td>
+                        </tr>
+                        <tr>
+                            <td>問題の検索</td>
+                            <td>単元名や問題文のキーワードで、学習したい問題を探せます。</td>
+                        </tr>
+                        <tr>
+                            <td>定期配信問題</td>
+                            <td>毎週、新しい問題が配信されます（プレミアム）。アプリを更新しなくても新しい回が追加されます。</td>
+                        </tr>
+                        <tr>
+                            <td>手書き回答</td>
+                            <td>マス目に指やApple Pencilで書いた文字を端末内で読み取って採点します。漢字・ひらがな・カタカナ・数字など、問題の指示に合った文字で答えます。マス目の拡大・縮小、書き直し、1マスずつの消去もできます。</td>
+                        </tr>
+                        <tr>
+                            <td>解説・出典</td>
+                            <td>回答後に正解、解説、出典を表示します。</td>
+                        </tr>
+                        <tr>
+                            <td>復習・履歴・ブックマーク</td>
+                            <td>過去の回答、正答率、ブックマークした問題を確認し、復習できます。</td>
+                        </tr>
+                        <tr>
+                            <td>複数プロフィール</td>
+                            <td>ニックネーム、年齢、学年、教科をプロフィールごとに設定できます。</td>
+                        </tr>
+                        <tr>
+                            <td>オフライン学習</td>
+                            <td>一度受け取った問題は、通信できない場所でも学習できます。</td>
+                        </tr>
+                        <tr>
+                            <td>iPhone / iPad対応</td>
+                            <td>iPhoneとiPadで利用できます。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="omoide-section omoide-safe-section">
+            <div>
+                <h2>お子さまにも安心して使っていただくために。</h2>
+                <p>マナリズは、学習記録を端末内に保存し、必要以上の情報を取得しないように設計しています。</p>
+            </div>
+            <ul>
+                <li>アカウント登録やログインは不要です。学習履歴は端末内に保存されます。</li>
+                <li>教材改善のための統計は、初期設定では送信しません。許可した場合も、ニックネームや筆跡は送信しません。</li>
+                <li>広告はパーソナライズを無効にし、全年齢向けの内容に限定して表示します。回答欄に重なる広告や全画面の広告は表示しません。</li>
+                <li>購入画面は、回答中や起動直後には表示しません。</li>
+            </ul>
+        </section>
+
+        <section class="omoide-section">
+            <h2 class="RedText">使い方</h2>
+            <ol class="omoide-steps">
+                <li>ニックネーム、年齢、学年、勉強する教科を入力してプロフィールを作ります。</li>
+                <li>ホームの「今日の問題」や、教科・単元から問題を選んで学習します。</li>
+                <li>四択または手書きで答え、正解と解説を確認します。</li>
+                <li>復習や履歴の画面で、間違えた問題や正答率を振り返ります。</li>
+                <li>家族で使う場合は、プロフィールを追加して切り替えます。</li>
+            </ol>
+        </section>
+
+        <section class="omoide-section">
+            <h2 class="RedText">FAQ</h2>
+            <div class="omoide-faq">
+                <details>
+                    <summary>無料で使えますか</summary>
+                    <p>基本学習問題と「今日の問題」は無料で利用できます。無料版では回答画面の下部に広告が表示されます。広告の非表示と定期配信問題の学習は、自動更新サブスクリプション「プレミアム」でご利用いただけます。価格はApp Storeでご確認ください。</p>
+                </details>
+                <details>
+                    <summary>漢字を手書きで練習できるアプリですか</summary>
+                    <p>はい。漢字の書き取りやひらがな・カタカナ、算数の答えなどを、画面のマス目に手書きで書いて答えます。書いた文字は端末の中で読み取り、その場で採点します。</p>
+                </details>
+                <details>
+                    <summary>どの学年・教科に対応していますか</summary>
+                    <p>基本学習問題は、小学1〜6年の国語・算数・理科・社会などに対応しています。学年・教科・単元を選んで学習できます。</p>
+                </details>
+                <details>
+                    <summary>iPadやApple Pencilで使えますか</summary>
+                    <p>はい。iPhoneとiPadに対応しており、指でもApple Pencilでも答えを書けます。</p>
+                </details>
+                <details>
+                    <summary>プレミアムの解約方法を教えてください</summary>
+                    <p>本アプリの「設定」＞「サブスクリプションを管理・解約」、またはiPhoneの「設定」＞ Apple アカウント ＞「サブスクリプション」から解約できます。解約後も、期間の終了日までは利用できます。</p>
+                </details>
+                <details>
+                    <summary>ログインは必要ですか</summary>
+                    <p>必要ありません。学習履歴は端末内に保存されます。アプリを削除すると学習履歴も削除されますのでご注意ください。</p>
+                </details>
+                <details>
+                    <summary>問題はどのように作られていますか</summary>
+                    <p>AIを活用して作成した問題を、当社で内容を確認・承認したうえで配信しています。内容に誤りを見つけた場合は、お問い合わせからお知らせください。</p>
+                </details>
+                <details>
+                    <summary>中学生や高校生も使えますか</summary>
+                    <p>現在は小学生向けの問題を配信しています。中学・高校・プログラミングなどの問題も、今後追加する予定です。配信が始まると、アプリを更新しなくても表示されます。</p>
+                </details>
+                <details>
+                    <summary>テストや成績評価に使えますか</summary>
+                    <p>マナリズは自習用のアプリです。正式な試験や成績評価には使用しないでください。</p>
+                </details>
+            </div>
+        </section>
+
+        <div class="solution-links">
+            <a class="solution-link" href="https://apps.apple.com/jp/app/%E3%83%9E%E3%83%8A%E3%83%AA%E3%82%BA/id6816197366" target="_blank" rel="noopener">App Storeで見る</a>
+            <a class="solution-link" href="/apps/">アプリ一覧へ戻る</a>
+            <a class="solution-link" href="/manarizu_privacy_policy.html">プライバシーポリシー</a>
+            <a class="solution-link" href="/app-contact.html">アプリお問い合わせ</a>
+        </div>
+    </div>
+</section>
+    </main>
+    <!--関連リンク -->
+    <footer class="footer">
+      <div class="contact-container">
+        <div class="contact-inner">
+          <div class="contact-text">
+            <h2>お問い合わせ</h2>
+            <p>
+                お客様のご利用状況に応じて、最適なソリューションをご提案いたします。<br>
+                小さなことでもお気軽にお問い合わせください。
+            </p>
+          </div>
+          <div class="contact-btn">
+            <a href="/contact/" class="footerLink">お問い合わせページ</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-container">
+        <div class="footer-section">
+          <a href="/company/" class="footerLink">会社案内</a><br>
+          <a href="/philosophy/" class="footerLink">社是</a>
+        </div>
+    
+        <div class="footer-section">
+          <a href="/news/" class="footerLink">お知らせ</a><br>
+          <a href="/contact/" class="footerLink">お問い合わせ</a><br>
+          <a href="/privacy/" class="footerLink">個人情報保護方針</a>
+        </div>
+    
+        <div class="footer-section">
+          <a href="/solutions/" class="footerLink">ソリューション</a><br>
+          <a href="/apps/" class="footerLink">モバイルアプリ</a><br>
+          <a href="/apps/sukusukunote/" class="footerLink">すくすくノート（育児記録アプリ）</a><br>
+          <a href="/apps/omoide-puzzle/" class="footerLink">おもいでパズル（幼児向けパズル）</a><br>
+          <a href="/apps/manarizu/" class="footerLink">マナリズ（手書き学習アプリ）</a><br>
+          <a href="/solutions/maptech/" class="footerLink">MapTech（Salesforce地図アプリ）</a>
+        </div>
+      </div>
+      <div class="footer_box02" style="margin-left: auto; margin-right: auto;">
+        <small>&copy; 2026 FuncTech Corp. All Rights Reserved.</small>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
