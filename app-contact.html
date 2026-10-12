@@ -42,7 +42,7 @@
         <div class="m70_sph">
           <div class="app-contact-lead">
             <h1 class="finish-title">スマートフォンアプリに関するお問い合わせ</h1>
-            <p class="finish-text">アプリのご利用、操作方法、不具合、サブスクリプション、プライバシーなどについて、下記フォームからお問い合わせください。「こんなアプリがほしい」というお困りごとのご相談もこちらで受け付けています。</p>
+            <p class="finish-text">アプリのご利用、操作方法、不具合、アプリ内購入（買い切り・サブスクリプション）、プライバシーなどについて、下記フォームからお問い合わせください。「こんなアプリがほしい」というお困りごとのご相談もこちらで受け付けています。</p>
             <p class="finish-text">Salesforceの開発支援やMapTechの導入など、法人のお客さまのご相談は<a href="/contact/">お問い合わせページ</a>の法人向けフォームからお願いいたします。</p>
           </div>
 
@@ -65,6 +65,7 @@
                       <option value="マナリズ">マナリズ</option>
                       <option value="すくすくノート">すくすくノート</option>
                       <option value="おもいでパズル">おもいでパズル</option>
+                      <option value="おかたづけキングダム - らくがきモンスター大作戦！">おかたづけキングダム - らくがきモンスター大作戦！</option>
                       <option value="特定のアプリではない">特定のアプリではない（新しいアプリのご相談など）</option>
                     </select>
                   </td>
@@ -177,6 +178,12 @@
       const form = document.getElementById("appInquiryForm");
       if (!form) {
         return;
+      }
+
+      const appName = document.getElementById("appName");
+      const requestedApp = new URLSearchParams(window.location.search).get("app");
+      if (appName && requestedApp === "okatazuke-kingdom") {
+        appName.value = "おかたづけキングダム - らくがきモンスター大作戦！";
       }
 
       function valueOf(id) {
