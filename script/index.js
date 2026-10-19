@@ -176,6 +176,21 @@
         navigate(url, true);
     });
 
+    window.addEventListener("pageshow", function () {
+        // Restore editable values when returning from a submitted form via browser history.
+        const form = document.getElementById("inquiryForm");
+        if (!form) {
+            return;
+        }
+        for (const id of ["subject", "description"]) {
+            const field = form.querySelector(`#${id}`);
+            if (field && field.dataset.originalValue !== undefined) {
+                field.value = field.dataset.originalValue;
+                delete field.dataset.originalValue;
+            }
+        }
+    });
+
     window.addEventListener("popstate", function () {
         if (window.location.pathname === renderedPath) {
             return; // Only the #hash changed; keep the page (and any form input) as is.
@@ -254,6 +269,12 @@
         flow.addEventListener("change", updateFlow);
         updateFlow();
 
+        form.addEventListener("input", function (e) {
+            if (e.target.id === "subject" || e.target.id === "description") {
+                delete e.target.dataset.originalValue;
+            }
+        });
+
         form.addEventListener("submit", function (e) {
             const field = function (id) {
                 return form.querySelector(`#${id}`);
@@ -272,13 +293,6 @@
             const description = field("description");
             const originalSubject = subject.dataset.originalValue || subject.value.trim();
             const originalDescription = description.dataset.originalValue || description.value.trim();
-            const combinedText = `${originalSubject}\n${originalDescription}`;
-            if (["スマートセールス", "M&A", "リトライブ"].some(function (word) { return combinedText.indexOf(word) !== -1; })) {
-                e.preventDefault();
-                alert("問い合わせを受け付けすることができません。");
-                return;
-            }
-
             const email = field("email").value;
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 e.preventDefault();
@@ -302,6 +316,21 @@
                     field(id).focus();
                     return;
                 }
+            }
+
+            // Check only the user's message, before adding Japanese form labels.
+            // This character check also accepts Chinese text containing Han characters.
+            if (!/[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/u.test(originalDescription)) {
+                e.preventDefault();
+                window.location.assign("/contactfinish.html");
+                return;
+            }
+
+            const combinedText = `${originalSubject}\n${originalDescription}`;
+            if (["スマートセールス", "M&A", "リトライブ"].some(function (word) { return combinedText.indexOf(word) !== -1; })) {
+                e.preventDefault();
+                alert("問い合わせを受け付けすることができません。");
+                return;
             }
 
             // Step 1〜3 の選択はフォームの項目ではないため、本文に含めて送る

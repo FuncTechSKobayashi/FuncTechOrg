@@ -204,6 +204,23 @@
         return false;
       }
 
+      window.addEventListener("pageshow", function () {
+        // Restore editable values when returning from a submitted form via browser history.
+        for (const id of ["subject", "description"]) {
+          const field = document.getElementById(id);
+          if (field && field.dataset.originalValue !== undefined) {
+            field.value = field.dataset.originalValue;
+            delete field.dataset.originalValue;
+          }
+        }
+      });
+
+      form.addEventListener("input", function (e) {
+        if (e.target.id === "subject" || e.target.id === "description") {
+          delete e.target.dataset.originalValue;
+        }
+      });
+
       form.addEventListener("submit", function (e) {
         const isAppSelected = valueOf("appName") !== "特定のアプリではない";
         const requiredFields = [
@@ -247,6 +264,14 @@
         const description = document.getElementById("description");
         const originalSubject = subject.dataset.originalValue || subject.value.trim();
         const originalDescription = description.dataset.originalValue || description.value.trim();
+        // Check only the user's message, before adding Japanese form labels.
+        // This character check also accepts Chinese text containing Han characters.
+        if (!/[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/u.test(originalDescription)) {
+          e.preventDefault();
+          window.location.assign("/contactfinish.html");
+          return;
+        }
+
         const combinedText = `${originalSubject}\n${originalDescription}`;
         if (
           combinedText.indexOf("スマートセールス") !== -1 ||
