@@ -66,6 +66,7 @@
                       <option value="すくすくノート">すくすくノート</option>
                       <option value="おもいでパズル">おもいでパズル</option>
                       <option value="おかたづけキングダム - らくがきモンスター大作戦！">おかたづけキングダム - らくがきモンスター大作戦！</option>
+                      <option value="MapTech（iPhoneアプリ）">MapTech（iPhoneアプリ）</option>
                       <option value="特定のアプリではない">特定のアプリではない（新しいアプリのご相談など）</option>
                     </select>
                   </td>
@@ -182,8 +183,12 @@
 
       const appName = document.getElementById("appName");
       const requestedApp = new URLSearchParams(window.location.search).get("app");
-      if (appName && requestedApp === "okatazuke-kingdom") {
-        appName.value = "おかたづけキングダム - らくがきモンスター大作戦！";
+      const requestedAppNames = {
+        "okatazuke-kingdom": "おかたづけキングダム - らくがきモンスター大作戦！",
+        "maptech": "MapTech（iPhoneアプリ）"
+      };
+      if (appName && Object.prototype.hasOwnProperty.call(requestedAppNames, requestedApp)) {
+        appName.value = requestedAppNames[requestedApp];
       }
 
       function valueOf(id) {
