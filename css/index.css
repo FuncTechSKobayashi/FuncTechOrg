@@ -1097,6 +1097,21 @@ input[type="submit"]:hover {
   aspect-ratio: 1;
 }
 
+.maptech-hero-image {
+  width: min(100%, 260px);
+  border-radius: 16px;
+}
+
+.maptech-app-thumb {
+  aspect-ratio: 637 / 1386;
+  border-radius: 14px;
+}
+
+.maptech-app-thumb img {
+  display: block;
+  object-fit: contain;
+}
+
 .omoide-content {
   display: flex;
   flex-direction: column;
@@ -1248,6 +1263,13 @@ input[type="submit"]:hover {
 .app-screen-card h3,
 .app-screen-card p {
   margin: 0;
+}
+
+.maptech-screen-grid .app-screen-card img {
+  display: block;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 .app-screen-card h3 {
