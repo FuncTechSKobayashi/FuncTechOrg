@@ -6,6 +6,8 @@
 
     const pageCache = new Map();
     const analytics = createAnalyticsTracker();
+    const RECAPTCHA_HELPER_URL = "/script/recaptcha.js?v=20261113-recaptcha";
+    let recaptchaHelper = null;
 
     // Directory-style URLs ("/", "/apps/manarizu/") are site pages. Root-level .html files
     // (privacy policies, app-contact.html) are standalone and use normal navigation.
@@ -207,6 +209,28 @@
         });
     }
 
+    // The contact page can arrive by a content swap, so its reCAPTCHA helper is loaded on demand.
+    function loadRecaptchaHelper() {
+        if (window.FuncTechRecaptcha) {
+            return Promise.resolve(window.FuncTechRecaptcha);
+        }
+        if (!recaptchaHelper) {
+            recaptchaHelper = new Promise(function (resolve, reject) {
+                const script = document.createElement("script");
+                script.src = RECAPTCHA_HELPER_URL;
+                script.onload = function () {
+                    resolve(window.FuncTechRecaptcha);
+                };
+                script.onerror = function () {
+                    recaptchaHelper = null; // Allow a retry on the next visit to the form.
+                    reject(new Error("reCAPTCHA helper failed to load"));
+                };
+                document.head.appendChild(script);
+            });
+        }
+        return recaptchaHelper;
+    }
+
     // ----- Page-specific behaviour (re-run after each content swap) -----
 
     function initPage(root) {
@@ -269,6 +293,23 @@
         flow.addEventListener("change", updateFlow);
         updateFlow();
 
+        let captcha = null;
+        let captchaFailed = false;
+        loadRecaptchaHelper().then(function (helper) {
+            captcha = helper.attach(form);
+        }).catch(function () {
+            captchaFailed = true;
+        });
+
+        function getCaptchaMessage() {
+            if (captcha) {
+                return captcha.check();
+            }
+            return captchaFailed
+                ? "確認用のチェックボックスを読み込めませんでした。ページを再読み込みしてから、もう一度送信してください。"
+                : "確認用のチェックボックスを読み込んでいます。少し待ってから、もう一度送信してください。";
+        }
+
         form.addEventListener("input", function (e) {
             if (e.target.id === "subject" || e.target.id === "description") {
                 delete e.target.dataset.originalValue;
@@ -316,6 +357,13 @@
                     field(id).focus();
                     return;
                 }
+            }
+
+            const captchaMessage = getCaptchaMessage();
+            if (captchaMessage) {
+                e.preventDefault();
+                alert(captchaMessage);
+                return;
             }
 
             // Check only the user's message, before adding Japanese form labels.
