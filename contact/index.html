@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="/css/index.css?v=20261004-pages">
-  <script src="/script/index.js?v=20261020-contact-language" defer></script>
+  <script src="/script/index.js?v=20261113-recaptcha" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -246,6 +246,7 @@
                 <div style="text-align: left;">お問合せ内容をご記入ください。</div>
                 <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5h000003Fe8L"
                 method="POST" id="inquiryForm">
+                    <input type="hidden" name="captcha_settings" value='{"keyname":"HomePageV2","fallback":"true","orgId":"00D5h000003Fe8L","ts":""}'>
                     <input type="hidden" name="orgid" value="00D5h000003Fe8L">
                     <input type="hidden" name="retURL" value="https://www.functech.org/contactfinish.html">
 
@@ -305,8 +306,9 @@
                             <input type="text" name="address" id="address" value="">
                         </div>
 
+                        <div class="contact-recaptcha" data-recaptcha style="display: flex; justify-content: center; margin: 16px 0;"></div>
+
                         <input type="hidden" id="external" name="external" value="1" />
-                        <br>
                         <input type="submit" name="submit" value="送信する"
                             style="width: 200px; height: 50px; color: black; cursor:pointer;">
                     </div>

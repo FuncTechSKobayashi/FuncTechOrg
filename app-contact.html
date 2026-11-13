@@ -50,6 +50,7 @@
             method="POST"
             id="appInquiryForm"
             novalidate>
+            <input type="hidden" name="captcha_settings" value='{"keyname":"HomePageV2","fallback":"true","orgId":"00D5h000003Fe8L","ts":""}'>
             <input type="hidden" name="orgid" value="00D5h000003Fe8L">
             <input type="hidden" name="retURL" value="https://www.functech.org/contactfinish.html">
 
@@ -165,6 +166,8 @@
                 <input type="text" name="address" id="address" value="" tabindex="-1" autocomplete="off">
               </div>
 
+              <div class="contact-recaptcha" data-recaptcha style="display: flex; justify-content: center; margin: 16px 0;"></div>
+
               <input type="hidden" id="external" name="external" value="1">
               <input type="submit" name="submit" value="送信する">
             </div>
@@ -174,12 +177,15 @@
     </main>
   </div>
 
+  <script src="/script/recaptcha.js?v=20261113-recaptcha"></script>
   <script>
     (function () {
       const form = document.getElementById("appInquiryForm");
       if (!form) {
         return;
       }
+
+      const captcha = window.FuncTechRecaptcha ? window.FuncTechRecaptcha.attach(form) : null;
 
       const appName = document.getElementById("appName");
       const requestedApp = new URLSearchParams(window.location.search).get("app");
@@ -263,6 +269,15 @@
         if (phone && !phonePattern.test(phone)) {
           e.preventDefault();
           return fail("正しい電話番号を入力してください。", "phone");
+        }
+
+        const captchaMessage = captcha
+          ? captcha.check()
+          : "確認用のチェックボックスを読み込めませんでした。ページを再読み込みしてから、もう一度送信してください。";
+        if (captchaMessage) {
+          e.preventDefault();
+          alert(captchaMessage);
+          return false;
         }
 
         const subject = document.getElementById("subject");
